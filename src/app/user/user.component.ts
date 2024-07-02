@@ -1,24 +1,36 @@
 import{Component, Input,input,computed,Output ,EventEmitter,output/*signal*/} from '@angular/core';
+import{type User} from './user.model';
 //import{DUMMY_USERS} from '../dummy-users';
-
+import { CardComponent } from '../shared/card/card.componet';
 
 //const randomIndex=Math.floor(Math.random()*DUMMY_USERS.length);
+
 
 Component({
     selector:'app-user',
     standalone:true,
+    imports:[CardComponent],
     templateUrl:'./user.component.html',
     styleUrl:'./user.component.less',
+    
 
 })
 
-export class HeaderComponent{
-        @Input({required:true}) id!:string;
+export class UserComponent{
+    @Input({required:true})user!:User;
+    @Input({required:true})selected!:boolean
+
+   /* @Input({required:true})user!:{
+        id:string;
+        avatar:string;
+        name:string;
+    };//we use tjis insted of using yhose 3 below
+        /*@Input({required:true}) id!:string;
         @Input({required:true})avatar!: string;
-        @Input({required:true}) name!: string;
+        @Input({required:true}) name!: string;*/
          
-       // @Output() select=new EventEmitter();
-       select=output<string>();
+        @Output() select=new EventEmitter<string>();
+      // select=output<string>();
 
        /* avatar=input.required<string>();
         name=input.required<string>();
@@ -28,11 +40,11 @@ export class HeaderComponent{
         })*/
 
         get imagePath(){
-            return 'assets/users/' + this.avatar;
+            return 'assets/users/' + this.user.avatar;
         }
 
 onSelectUser(){
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
 }
 }
 
