@@ -8,8 +8,8 @@ import { CardComponent } from '../shared/card/card.componet';
 
 Component({
     selector:'app-user',
-    standalone:true,
-    imports:[CardComponent],
+    standalone:false,
+    //imports:[CardComponent],
     templateUrl:'./user.component.html',
     styleUrl:'./user.component.less',
     

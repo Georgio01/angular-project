@@ -6,10 +6,10 @@ import { TaskService } from '../task.service';
 
 @Component({
 selector:'app-task',
-standalone:true,
+standalone:false,
 templateUrl:'./task.component.html',
 styleUrl:'./task.component.less',
-imports:[CardComponent,DatePipe]
+//imports:[CardComponent,DatePipe]
 
 })
 
